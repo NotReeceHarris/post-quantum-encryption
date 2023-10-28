@@ -5,8 +5,8 @@
 ## Lattice
 In the context of post-quantum encryption, a lattice is a mathematical structure used for cryptographic purposes. It involves complex geometric shapes and mathematical equations. Lattice-based cryptography relies on the hardness of certain lattice problems to create encryption schemes that are believed to be secure against attacks by quantum computers. This makes lattice-based encryption a promising candidate for ensuring data security in a post-quantum world.
 
-[![](/assets/lattice.png)](https://ocw.mit.edu/courses/18-409-topics-in-theoretical-computer-science-an-algorithmists-toolkit-fall-2009/a5351bd811ac52366dec759f2c6b2fac_MIT18_409F09_scribe18.pdf)
-<sub>This is an example of a "good basis" and "bad basis"</sub>
+[![](/assets/lattice.png)](https://ocw.mit.edu/courses/18-409-topics-in-theoretical-computer-science-an-algorithmists-toolkit-fall-2009/a5351bd811ac52366dec759f2c6b2fac_MIT18_409F09_scribe18.pdf) \
+<sub>This is an example of a "good basis" and "bad basis" within a lattice structure.</sub>
 
 ### How lattices are used in encryption
 
