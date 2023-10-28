@@ -1,13 +1,26 @@
 import numpy as np
 
-def forms_same_lattice(basis1, basis2):
-    """
-    Check if two bases form the same lattice.
-    """
-    return np.linalg.det(basis1) == np.linalg.det(basis2)
+def generate_vector(num_of_dimentions=2, max_value=50):
+    basis = np.random.randint(0, max_value, (num_of_dimentions))
 
-A = np.array([[1, 0], [0, 3]])
-B = np.array([[1, 0], [0, 2]])
+    while basis[0] == basis[1] and (basis[0] == 0 and basis[1] == 0):
+        basis = np.random.randint(0, max_value, (num_of_dimentions))
 
-print(np.linalg.det(A), np.linalg.det(B))
+    return basis
 
+def generate_basis(num_of_dimensions=2):
+    basis = []
+
+    while basis.__len__() < num_of_dimensions:
+        vector = generate_vector(num_of_dimensions)
+        if not any((vector == existing_vector).all() for existing_vector in basis):
+            basis.append(vector)
+
+    return basis
+
+print(generate_basis(2))
+
+print([
+    generate_vector(2),
+    list(generate_vector(2))
+])
