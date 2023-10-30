@@ -19,3 +19,9 @@ Here's how the process works: Once Bob has Alice's public key (the "bad basis"),
 ### Lattice Dimensions
 
 Lattices can exhibit multiple dimensions, which is what contributes to their complexity. The examples above illustrate a basic 2D lattice (x, y). However, it's essential to understand that a lattice can extend into an arbitrary number of dimensions. This means it can involve not only a flat plane like (x, y) but can also encompass (x, y, z), (x, y, z, w), and beyond, These additional dimensions add layers of complexity and versatility to the lattice concept.
+
+## A question that i had
+
+I had a question in mind: If having a nearly parallel basis is problematic for solving the shortest path problem, why not seek the closest basis to the origin (the starting point)? Upon conducting some research, I realized that this approach could indeed be a viable option. However, it comes with its own set of challenges, often referred to as the "closest vector problem."
+
+The "closest vector problem" involves finding the vector closest to the origin, and it can be quite challenging, especially when dealing with higher dimensions. In a two-dimensional space with a maximum distance of 50, it may not pose significant difficulties. However, when we venture into hundreds of dimensions with distances spanning up to a million, this task becomes exceptionally complex and demanding.
