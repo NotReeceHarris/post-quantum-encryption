@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import random
 import time
 
-good_angle = 40
+good_angle = 50
 
 def generate_vector(max_value=15):
     basis = np.random.randint(0, max_value, (2))
@@ -22,7 +22,7 @@ def generate_basis():
         if not any((vector == existing_vector).all() for existing_vector in basis):
             basis.append(vector)
 
-    return basis
+    return [list(basis[0]), list(basis[1])]
 
 def find_angle(basis):
     start_point = (0, 0)
@@ -63,9 +63,49 @@ def generate_good_basis():
 
     return basis
 
+def generate_bad_basis(good_basis):
+
+    points = [
+        [good_basis[0][0], good_basis[0][1]],
+        [good_basis[1][0], good_basis[1][1]]
+    ]
+
+    vector_a = [good_basis[0][0], good_basis[0][1]]
+    vector_b = [good_basis[1][0], good_basis[1][1]]
+
+    for x in range(0, 8000):
+        direction = random.randint(0, 1)
+        negative = random.randint(0, 2) == 0
+
+        if negative:
+            vector_a[0] -= points[direction][0]
+            vector_a[1] -= points[direction][1]
+        else:
+            vector_a[0] += points[direction][0]
+            vector_a[1] += points[direction][1]
+
+        direction = random.randint(0, 1)
+        negative = random.randint(0, 3) == 1
+
+        if negative:
+            vector_b[0] -= points[direction][0]
+            vector_b[1] -= points[direction][1]
+        else:
+            vector_b[0] += points[direction][0]
+            vector_b[1] += points[direction][1]
+
+    return [vector_a, vector_b]
+
+
 if __name__ == "__main__":
     start = time.time()
     good_basis = generate_good_basis()
     end = time.time()
 
-    print(good_basis, find_angle(good_basis), end - start)
+    print(good_basis, find_angle(good_basis), end-start)
+
+    start = time.time()
+    bad_basis = generate_bad_basis(good_basis)
+    end = time.time()
+
+    print(bad_basis, find_angle(bad_basis), end-start)
